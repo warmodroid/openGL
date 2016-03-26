@@ -10,7 +10,6 @@ Coded my Mohit Agrawal   */
 using namespace std;
 
 
-
 class rain_dropes
 {
 public:
