@@ -62,8 +62,16 @@ void mykeyfunction(unsigned char key, int x, int y)
 		break;
 	}
 }
+
+void print_instructions()
+{
+	cout << "USE 'Q' AND 'A' TO INCREASE AND REDUCE THE NO. OF PARTICLES" << endl;
+	cout << "USE 'W' AND 'S' TO INCREASE AND DECREASE THE NO SIZE OF PARTICLES" << endl;
+}
+
 int  main(int argc, char **argv)
 {
+	print_instructions();
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(500, 500);
