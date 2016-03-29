@@ -6,7 +6,7 @@
 using namespace std;
 
 int l=3;
-int k = 1;
+int k = 1, angle=0;
 
 class cubes{
 public:
@@ -34,26 +34,26 @@ void cubes::draw_cubes()
 	glBegin(GL_QUADS);
 	glColor3f(0, 1, 0);                   //face second
 	glVertex3d(x+ll, y, 0);
-	glVertex3d(x + ll, y, 5);
-	glVertex3d(x + ll, y +ll, 5);
+	glVertex3d(x + ll, y,ll);
+	glVertex3d(x + ll, y +ll, ll);
 	glVertex3d(x+ll, y + ll, 0);
 	glEnd();
 
 
 	glBegin(GL_QUADS);
 	glColor3f(0, 0, 1);                   //face third
-	glVertex3d(x , y, 5);
-	glVertex3d(x + ll, y, 5);
-	glVertex3d(x + ll, y+ll, 5);
-	glVertex3d(x , y + ll, 5);
+	glVertex3d(x , y, ll);
+	glVertex3d(x + ll, y, ll);
+	glVertex3d(x + ll, y+ll, ll);
+	glVertex3d(x , y + ll, ll);
 	glEnd();
 
 
 	glBegin(GL_QUADS);
 	glColor3f(1, 1, 0);                   //face fourth
 	glVertex3d(x , y, 0);
-	glVertex3d(x , y, 5);
-	glVertex3d(x , y+ll, 5);
+	glVertex3d(x , y, ll);
+	glVertex3d(x , y+ll, ll);
 	glVertex3d(x , y + ll, 0);
 	glEnd();
 
@@ -61,13 +61,13 @@ void cubes::draw_cubes()
 	glColor3f(0, 1, 1);                   //face fifth
 	glVertex3d(x , y+ll, 0);
 	glVertex3d(x + ll, y+ll,0 );
-	glVertex3d(x + ll, y+ll, 5);
-	glVertex3d(x , y + ll, 5);
+	glVertex3d(x + ll, y+ll, ll);
+	glVertex3d(x , y + ll, ll);
 	glEnd();
 
 
 	glBegin(GL_QUADS);
-	glColor3f(0, 1, 0);                   //face sixth
+	glColor3f(1, 0, 1);                   //face sixth
 	glVertex3d(x , y, 0);
 	glVertex3d(x + ll, y, 0);
 	glVertex3d(x + ll, y, 5);
@@ -83,7 +83,7 @@ void display()
 	if (k == 1)
 	{
 
-		glRotatef(40, 1, 1, 1);
+		glRotatef(25, 1, 1, 0);
 		k = 0;
 	}
 	for (int k = 0; k < 100; k++)
@@ -106,6 +106,8 @@ void mykeyboard(unsigned char key, int x, int y)
 			break;
 		case 'a': l = l - 1;
 			break;
+		case 'w':angle = 1 + angle; k = 1; break;
+		case 's':angle = angle - 1; k = 1; break;
 		
 		}
 }
