@@ -70,7 +70,7 @@ void display()
 
 	glutSwapBuffers();
 	glutPostRedisplay();
-	Sleep(50);
+	Sleep(90);
 }
 
 void render()
