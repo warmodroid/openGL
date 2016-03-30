@@ -1,11 +1,17 @@
 #include<stdio.h>
 #include<glut.h>
 
-
+int a = 0, k = 1;
 void display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0, 0, 0, 1);
+	if (k == 1)
+	{
+		glRotatef(a, 0, 1, 1);
+		k = 0;
+	}
+
 	glColor3f(1, 0, 0);
 	
 	glBegin(GL_TRIANGLES);
@@ -34,9 +40,17 @@ void display()
 
 	glFlush();
 	glutSwapBuffers();
+	glutPostRedisplay();
 
 }
-
+void key(unsigned char key, int x, int y)
+{
+	switch (key)
+	{
+	case 'q': a = a + 1; k = 1; break;
+	case 'a' : a = a - 1; k = 1; break;
+	}
+}
 int main(int argc, char **argv)
 { 
 	glutInit(&argc, argv);
@@ -46,6 +60,7 @@ int main(int argc, char **argv)
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glOrtho(0, 500, 0, 500, 500, -500);
+	glutKeyboardFunc(key);
 	glutDisplayFunc(display);
 	glEnable(GL_DEPTH_TEST);
 	glutMainLoop();
